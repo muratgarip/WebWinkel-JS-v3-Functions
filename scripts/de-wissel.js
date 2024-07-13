@@ -1,6 +1,6 @@
 console.log('hallo vanuit de-wissel pagina');
-// deel 1 Data bewaren
-let producten= [
+// deel 1 Data bewaren, data verhuist naar data/producten.js
+/*let producten= [
 {
     afbeelding: 'afbeeldingen/producten/basket-153310_1280.png',
     naam: 'High-performance basketbalschoenen, ontworpen met veerkrachtige zolen en stijlvolle patronen.',
@@ -27,8 +27,53 @@ let producten= [
         aantal:368
     },
     prijsCent: 12595,
+},
+{
+    afbeelding: 'afbeeldingen/producten/vrijetijd-niki-8658546_1280.png',
+    naam: 'Niki, mooie vrijtijds sportieve schoenen',
+    rating:{
+        sterren: 3.5,
+        aantal:56
+    },
+    prijsCent:15395,
+},
+{
+    afbeelding: 'afbeeldingen/producten/basket-153310_1280.png',
+    naam: 'High-performance basketbalschoenen, ontworpen met veerkrachtige zolen en stijlvolle patronen.',
+    rating:{
+        sterren:4.5,
+        aantal:278
+    },
+    prijsCent: 16995,
+},
+{
+    afbeelding: 'afbeeldingen/producten/tennis-7968714_1280.png',
+    naam: 'Biedt optimale ondersteuning, demping en stabiliteit voor intensieve bewegingen op de baan.',
+    rating:{
+        sterren:3.0,
+        aantal:568
+    },
+    prijsCent: 14595,
+},
+{
+    afbeelding: 'afbeeldingen/producten/loop-157716_1280.png',
+    naam: 'Loopschoenen. Hij heeft een lichtgewicht en ademend bovenwerk dat zorgt voor ventilatie en voorkomt oververhitting.',
+    rating:{
+        sterren:4.0,
+        aantal:368
+    },
+    prijsCent: 12595,
+},
+{
+    afbeelding: 'afbeeldingen/producten/vrijetijd-niki-8658546_1280.png',
+    naam: 'Niki, mooie vrijtijds sportieve schoenen',
+    rating:{
+        sterren: 3.5,
+        aantal:56
+    },
+    prijsCent:15395,
 }
-];
+];*/
 
 // deel 2 HTML code genereren
 
