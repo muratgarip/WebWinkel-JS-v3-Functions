@@ -1,0 +1,225 @@
+.main{
+    max-width: 850px;
+    margin-top: 90px;
+    margin-bottom: 100px;
+    padding-left: 20px;
+    padding-right: 20px;
+  
+    /* margin-left: auto;
+       margin-right auto;
+       Dit is een manier om een element horizontaal 
+       te centreren zonder een container te gebruiken
+    */
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .pagina-titel{
+    font-weight: 700;
+    font-size: 26px;
+    margin-bottom: 25px;
+  }
+
+  .orders-grid{
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 50px;
+  }
+
+  .order-header{
+    background-color: rgb(240, 242, 242);
+    border: 1px solid rgb(213, 217, 217);
+  
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  
+    padding: 20px 25px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
+
+  .order-header-links{
+    display: flex;
+    flex-shrink: 0;
+  }
+
+  .order-header-label{
+    font-weight: 500;
+  }
+
+.order-datum,
+.order-totaal{
+  margin-right: 45px;
+}
+
+.order-header-rechts{
+    flex-shrink: 1;
+}
+
+@media (max-width: 575px) {
+    .order-header {
+      flex-direction: column;
+      align-items: start;
+      line-height: 23px;
+      padding: 15px;
+    }
+  
+    .order-header-links{
+      flex-direction: column;
+    }
+  
+    .order-header-label{
+      margin-right: 5px;
+    }
+  
+    .order-date,
+    .order-total{
+      display: grid;
+      grid-template-columns: auto 1fr;
+      margin-right: 0;
+    }
+  
+    .order-header-rechts{
+      display: grid;
+      grid-template-columns: auto 1fr;
+    }
+  }
+
+  .order-details-grid{
+    padding: 40px 25px;
+    border: 1px solid rgb(213, 217, 217);
+    border-top: none;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+  
+    display: grid;
+    grid-template-columns: 110px 1fr 220px;
+    column-gap: 35px;
+    row-gap: 60px;
+    align-items: center;
+  } 
+
+  @media (max-width: 800px){
+    .order-details-grid {
+      grid-template-columns: 110px 1fr;
+      row-gap: 0;
+      padding-bottom: 8px;
+    }
+  }
+  
+  @media (max-width: 450px){
+    .order-details-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .product-afbeelding-container{
+    text-align: center;
+  }
+
+  .product-afbeelding-container img{
+    max-width: 110px;
+    max-height: 110px;
+  }
+
+  .product-naam{
+    font-weight: 700;
+    margin-bottom: 5px;
+  }
+  
+  .product-lever-datum{
+    margin-bottom: 3px;
+  }
+
+  .product-aantal{
+    margin-bottom: 8px;
+  }
+
+  .koop-opnieuw-button{
+    font-size: 15px;
+    width: 140px;
+    height: 36px;
+    border-radius: 8px;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .koop-opnieuw-icon{
+    width: 25px;
+    margin-right: 15px;
+  }
+
+  .product-actie{
+    align-self: start;
+  }
+
+  .volg-bestelling-button{
+    width: 100%;
+    font-size: 15px;
+    padding: 8px;
+  }
+
+  @media (max-width: 800px) {
+    .koop-opnieuw-button{
+      margin-bottom: 10px;
+    }
+  
+    .product-actie{
+      /* grid-column: 2  betekent dat deze element
+         in kolom 2 van de grid wordt geplaatst.
+         Normaal wordt een element geplaatst volgens de 
+         volgorde dat ze voorkomen in html.
+         grid-column overschrijft de standaard instelling van 
+         de volgorde.
+      */
+      grid-column: 2;
+      margin-bottom: 30px;
+    }
+  
+    .volg-bestelling-button{
+      width: 140px;
+    }
+  }
+
+  @media (max-width: 450px) {
+    .product-afbeelding-container {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+  
+    .product-afbeelding-container img {
+      max-width: 150px;
+      max-height: 150px;
+    }
+  
+    .product-naam {
+      margin-bottom: 10px;
+    }
+  
+    .product-aantal {
+      margin-bottom: 15px;
+    }
+  
+    .koop-opnieuw-button{
+      width: 100%;
+      margin-bottom: 15px;
+    }
+
+    .product-actie{
+        /* grid-column: auto; verwijder grid-column: 2; de setting 
+           van hierboven. Deze element wordt nu in de volgorde geplaatst 
+           in de grid volgens de volgorde van voorkomen in de html.
+           
+         */
+        grid-column: auto;
+        margin-bottom: 70px;
+      }
+    
+      .volg-bestelling-button{
+        width: 100%;
+        padding: 12px;
+      }
+    }

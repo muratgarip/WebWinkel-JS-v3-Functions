@@ -1,0 +1,82 @@
+.main{
+    max-width: 850px;
+    margin-top: 90px;
+    margin-bottom: 100px;
+    padding-left: 30px;
+    padding-right: 30px;
+  
+    /* margin-left: auto;
+       margin-right auto;
+       Dit is een manier om een element horizontaal te centreren
+       zonder hier een container voor te maken.
+    */
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .terug-naar-order-link{
+    display: inline-block;
+    margin-bottom: 30px;
+  }
+
+  .levering-datum{
+    font-size: 25px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  
+  .product-info{
+    margin-bottom: 3px;
+  }
+
+  .product-afbeelding{
+    max-width: 150px;
+    max-height: 150px;
+    margin-top: 25px;
+    margin-bottom: 50px;
+  }
+
+  .progres-labels-container {
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 15px;
+  }
+  
+  .status {
+    color: rgb(6, 125, 98);
+  }
+
+  @media (max-width: 575px) {
+    .progres-labels-container {
+      font-size: 16px;
+    }
+  }
+
+  @media (max-width: 450px) {
+    .progres-label-container {
+      flex-direction: column;
+      margin-bottom: 5px;
+    }
+  
+    .progres-label {
+      margin-bottom: 3px;
+    }
+  }
+
+  .progres-bar-container {
+    height: 25px;
+    width: 100%;
+  
+    border: 1px solid rgb(200, 200, 200);
+    border-radius: 50px;
+    overflow: hidden;
+  }
+
+  .progres-bar {
+    height: 100%;
+    background-color: green;
+    border-radius: 50px;
+    width: 50%;
+  }

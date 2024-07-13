@@ -1,0 +1,207 @@
+.main {
+    max-width: 1100px;
+    padding-left: 30px;
+    padding-right: 30px;
+  
+    margin-top: 140px;
+    margin-bottom: 100px;
+  
+    /* margin-left: auto;
+       margin-right auto;
+       Is een truk om de elementen horizontaal te centreren 
+       zonder dat we een container nodig hebben. 
+    */
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .pagina-titel {
+    font-weight: 700;
+    font-size: 22px;
+    margin-bottom: 18px;
+  }
+  
+  .checkout-grid {
+    display: grid;
+    /* 1fr betekend dat de eerste kolom de overblijvende plaats
+       inneemt van de grid. 
+    */
+    grid-template-columns: 1fr 350px;
+    column-gap: 12px;
+  
+    /* align-items: start; doen we om te voorkomen dat de grid vertikaal 
+       gaat strechen. 
+    */
+    align-items: start;
+  }
+
+  @media (max-width: 1000px) {
+    .main {
+      max-width: 500px;
+    }
+  
+    .checkout-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .winkelwagen-product-container,
+  .betaling-samenvatting {
+    border: 1px solid rgb(222, 222, 222);
+    border-radius: 4px;
+    padding: 18px;
+  }
+
+  .winkelwagen-product-container{
+    margin-bottom: 12px;
+  }
+  
+  .betaling-samenvatting{
+    padding-bottom: 5px;
+  }
+
+  @media (max-width: 1000px) {
+    .betaling-samenvatting{
+      /* grid-row: 1 ; betekent dat dit element in rij 1 van de grid 
+         geplaatst wordt. 
+         Normaal worden de elementen in rijen geplaast in de volgorde 
+         waarin ze gemaakt zijn in html. grid-row overschrijft deze volgorde.
+      */
+      grid-row: 1;
+      margin-bottom: 12px;
+    }
+  }
+
+  .lever-datum{
+    color: rgb(0, 118, 0);
+    font-weight: 700;
+    font-size: 19px;
+    margin-top: 5px;
+    margin-bottom: 22px;
+  }
+
+  .winkelwagen-product-detail-grid{
+    display: grid;
+    /* 100px 1fr 1fr; means the 2nd and 3rd column will
+       take up half the remaining space in the grid
+       (they will divide up the remaining space evenly). */
+    grid-template-columns: 100px 1fr 1fr;
+    column-gap: 25px;
+  }
+  
+  @media (max-width: 1000px) {
+    .winkelwagen-product-detail-grid{
+      grid-template-columns: 100px 1fr;
+      row-gap: 30px;
+    }
+  }
+
+  .product-afbeelding{
+    max-width: 100%;
+    max-height: 120px;
+  
+    /* margin-left: auto;
+       margin-right auto;
+       Is a trick for centering an element horizontally
+       without needing a container. */
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .product-naam{
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  .product-prijs{
+    color: rgb(177, 39, 4);
+    font-weight: 700;
+    margin-bottom: 5px;
+  }
+  
+  .product-aantal .link-primary {
+    margin-left: 3px;
+  }
+
+  @media (max-width: 1000px) {
+    .bezorg-opties{
+      /* grid-column: 1 betekent dat deze element in kolom 1 van de grid geplaats 
+         wordt. Normaal wordt de kolom waar de element in geplaatst wordt, bepaald
+         door de volgorde waarin de elementen in html gemaakt zijn.
+         grid-column overschrijft deze regel
+         
+         / span 2 betekent dat de element elemnet twee kolomen in ruimte inneemt 
+         binnen de grid. Normaal is dat maar een.
+      */
+      grid-column: 1 / span 2;
+    }
+  }
+
+  .bezorg-opties-titel{
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  .bezorg-optie{
+    display: grid;
+    grid-template-columns: 24px 1fr;
+    margin-bottom: 12px;
+    cursor: pointer;
+  }
+  
+  .bezorg-optie-input{
+    margin-left: 0px;
+    cursor: pointer;
+  }
+
+  .bezorg-optie-datum{
+    color: rgb(0, 118, 0);
+    font-weight: 500;
+    margin-bottom: 3px;
+  }
+
+  .bezorg-optie-prijs{
+    color: rgb(120, 120, 120);
+    font-size: 15px;
+  }
+
+  .betaling-samenvatting-titel{
+    font-weight: 700;
+    font-size: 18px;
+    margin-bottom: 12px;
+  }
+
+  .betaling-samenvatting-rij{
+    display: grid;
+    /* 1fr auto; betekend dat de breedte van de tweede kolom bepaald
+       wordt door de elementen binnen deze kolom (auto).
+       De eerste kolom zal de overblijvende ruimte innemen.
+    */
+    grid-template-columns: 1fr auto;
+  
+    font-size: 15px;
+    margin-bottom: 9px;
+  }
+
+  .betaling-samenvatting-bedrag{
+    text-align: right;
+  }
+  
+  .totaal-rij{
+    color: rgb(177, 39, 4);
+    font-weight: 700;
+    font-size: 18px;
+   
+    border-top: 1px solid rgb(222, 222, 222);
+    padding-top: 18px;
+  }
+
+  .bestelling-plaatsen-button{
+    width: 100%;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 11px;
+    margin-bottom: 15px;
+  }

@@ -1,0 +1,141 @@
+.main{
+    margin-top:60px;
+}
+
+.producten-grid{
+    display:grid;
+/*
+wanneer we de grid-template-columns op 1fr zetten, zal een kollom alle beschikbare plaats innemen in de grid.
+wanneer we deze op 1fr 1fr zetten wordt de beschikbare grid ruimte in 2 gelijke kollomen ingedeeld
+*/
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+/*
+@media gebruiken we om onze bagina responsive te maken. Afhankelijk van de beschikbare
+schermgrootte gaan we de aantal kolommen aanpassen.
+*/
+@media (max-width: 2000px) {
+    .producten-grid {
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    }
+  }
+@media (max-width: 1600px) {
+    .producten-grid {
+      grid-template-columns:  1fr 1fr 1fr 1fr 1fr 1fr;
+    }
+  }
+  
+@media (max-width: 1300px) {
+    .producten-grid {
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    }
+  }
+  
+@media (max-width: 1000px) {
+    .producten-grid {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+  }
+  
+@media (max-width: 800px) {
+    .producten-grid {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+  
+@media (max-width: 575px) {
+    .producten-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  
+@media (max-width: 450px) {
+    .producten-grid {
+      grid-template-columns: 1fr;
+    }
+  } 
+
+  .product-container {
+    padding-top: 40px;
+    padding-bottom: 25px;
+    padding-left: 25px;
+    padding-right: 25px;
+  
+    border-right: 1px solid rgb(231, 231, 231);
+    border-bottom: 1px solid rgb(231, 231, 231);
+  
+    display: flex;
+    flex-direction: column;
+  }
+
+  .product-afbeelding-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 180px;
+    margin-bottom: 20px;
+  }
+  .product-afbeelding {
+    /* Afbeeldingen zullen buiten de container vallen. Om dit te 
+    voorkomen zetten we een max-width en max-height op 100%.
+    zodat de afbeelding binnen de container blijft
+    */
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  .product-naam {
+    height: 40px;
+    margin-bottom: 5px;
+  }
+
+  .product-rating-container {
+    display: flex;
+    align-items:center;
+    margin-bottom: 10px;
+  }
+  .product-rating-sterren {
+    width: 100px;
+    margin-right: 6px;
+  }
+  .product-rating-aantal {
+    color: rgb(1, 124, 182);
+    cursor: pointer;
+    margin-top: 3px;
+  }
+
+  .product-prijs {
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  .aan-winkelmand-toegevoegd {
+    color: rgb(6, 125, 98);
+    font-size: 16px;
+  
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+  
+    /* In het begin moet het teken toegevoegd in winkelmand onzichtbaar zijn.
+     We zetten de opacity op 0 dan is deze onzichtbaar.
+     later in de code, kunnen we het veranderen naar opacity 1 wanneer er een product gekocht wordt.
+    */
+    opacity: 0;
+  }
+
+
+  .aan-winkelmand-toegevoegd img {
+    height: 20px;
+    margin-right: 5px;
+  }
+
+  .product-afstand-regelen{
+    flex: 1;
+  }
+  .aan-winkelwagen-toevoegen-btn{
+    width: 100%;
+    padding: 8px;
+    border-radius: 50px;
+  }

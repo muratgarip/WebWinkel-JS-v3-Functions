@@ -1,0 +1,84 @@
+.checkout-header{
+    height: 60px;
+    padding-left: 30px;
+    padding-right: 30px;
+    background-color: white;
+  
+    display: flex;
+    justify-content: center;
+  
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+  }
+
+  .header-inhoud{
+    width: 100%;
+    max-width: 1100px;
+  
+    display: flex;
+    align-items: center;
+  }
+
+  .header-link{
+    text-decoration: none;
+    font-weight:800;
+  }
+
+  .checkout-header-links{
+    width: 150px;
+  }
+
+  @media (max-width: 575px) {
+    .checkout-header-links {
+      width: auto;
+    }
+  }
+
+  .checkout-header-midden{
+    flex: 1;
+    flex-shrink: 0;
+    text-align: center;
+  
+    font-size: 25px;
+    font-weight: 500;
+  
+    display: flex;
+    justify-content: center;
+  }
+
+  .ga-naar-hoofdpagina-link{
+    color: rgb(0, 113, 133);
+    font-size: 23px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  @media (max-width: 1000px) {
+    .checkout-header-midden{
+      font-size: 20px;
+      margin-right: 60px;
+    }
+    .ga-naar-hoofdpagina-link{
+      font-size: 18px;
+    }
+  }
+
+  @media (max-width: 575px){
+    .checkout-header-midden{
+      margin-right: 5px;
+    }
+  }
+
+  .checkout-header-rechts{
+    text-align: right;
+    width: 150px;
+  }
+
+  @media (max-width: 1000px) {
+    .checkout-header-rechts{
+      width: auto;
+    }
+  }
