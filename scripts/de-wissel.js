@@ -1,6 +1,8 @@
-console.log('hallo vanuit de-wissel pagina');
+
 // deel 1 Data bewaren, data verhuist naar data/producten.js
-/*let producten= [
+/*
+console.log('hallo vanuit de-wissel pagina');
+let producten= [
 {
     afbeelding: 'afbeeldingen/producten/basket-153310_1280.png',
     naam: 'High-performance basketbalschoenen, ontworpen met veerkrachtige zolen en stijlvolle patronen.',
@@ -123,14 +125,52 @@ producten.forEach((product)=>{
                 <div class="aan-winkelmand-toegevoegd">
                     <img src="afbeeldingen/icons/checkmark.png" alt="">
                 </div>
-
-                <button class="aan-winkelwagen-toevoegen-btn">
+                <button class="aan-winkelwagen-toevoegen-btn js-aan-winkelwagen-toevoegen-btn"
+                    data-product-id="${product.id}">
                     In winkelwagen
                 </button>
             </div>      
     `;
 });
 
-console.log(productenHTML);
-
 document.querySelector('.js-producten-grid').innerHTML+=productenHTML;
+
+/*
+eventlistener toevoegen aan alle "In winkelwagen" knoppen
+*/
+
+document.querySelectorAll('.js-aan-winkelwagen-toevoegen-btn').forEach((knop)=>{
+    knop.addEventListener('click', ()=>{
+            let productId=knop.dataset.productId;
+
+            let productGevonden; // productNaam === productGekocht
+
+            winkelmand.forEach((productGekocht)=>{
+                if (productId === productGekocht.productId){
+                    productGevonden=productGekocht;
+                }
+            });
+            /*Javascript instructie in een regel: 
+            productGevonden = winkelmand.find((productGekocht) => productNaam === productGekocht.productNaam);*/
+
+            if (productGevonden){
+                productGevonden.aantal+=1;
+            /*
+            Objecten en referenties: In JavaScript worden objecten door referentie opgeslagen. 
+            Wanneer je een object zoekt en toewijst aan een variabele (zoals productGevonden), 
+            wijst die variabele naar dezelfde plek in het geheugen waar het object is opgeslagen.
+            Directe wijziging: Wanneer je vervolgens een eigenschap van dat object wijzigt via de nieuwe variabele 
+            (productGevonden.aantal), bewerk je het daadwerkelijke object in de winkelmand array omdat beide variabelen 
+            (het element in de array en productGevonden) naar hetzelfde object in het geheugen verwijzen.
+            */
+            }else{
+                winkelmand.push({
+                    productId: productId,
+                    aantal:1
+                }); 
+            }
+
+            console.log(winkelmand);
+    });
+});
+
