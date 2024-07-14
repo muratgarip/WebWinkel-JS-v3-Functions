@@ -170,6 +170,15 @@ document.querySelectorAll('.js-aan-winkelwagen-toevoegen-btn').forEach((knop)=>{
                 }); 
             }
 
+            let winkelmandAantal=0;
+
+            winkelmand.forEach((productGekocht)=>{
+                winkelmandAantal+=productGekocht.aantal;
+            })
+
+            document.querySelector('.js-kar-aantal').innerHTML=winkelmandAantal;
+
+            console.log(winkelmandAantal);
             console.log(winkelmand);
     });
 });
