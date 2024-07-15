@@ -106,7 +106,7 @@ producten.forEach((product)=>{
                 </div>
 
                 <div class="product-aantal-container">
-                    <select>
+                    <select class="js-aantal-selector-${product.id}">
                         <option selected value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -153,20 +153,24 @@ document.querySelectorAll('.js-aan-winkelwagen-toevoegen-btn').forEach((knop)=>{
             /*Javascript instructie in een regel: 
             productGevonden = winkelmand.find((productGekocht) => productNaam === productGekocht.productNaam);*/
 
+            let aantalSelector=document.querySelector(`.js-aantal-selector-${productId}`);// oefening c.
+            let aantalGeselecteerd=Number(aantalSelector.value);                    // oefening d. en e.
+
             if (productGevonden){
-                productGevonden.aantal+=1;
+                productGevonden.aantal+=aantalGeselecteerd;                          // oefening e.
             /*
-            Objecten en referenties: In JavaScript worden objecten door referentie opgeslagen. 
+            - Objecten en referenties: In JavaScript worden objecten door referentie opgeslagen. 
             Wanneer je een object zoekt en toewijst aan een variabele (zoals productGevonden), 
             wijst die variabele naar dezelfde plek in het geheugen waar het object is opgeslagen.
-            Directe wijziging: Wanneer je vervolgens een eigenschap van dat object wijzigt via de nieuwe variabele 
+
+            - Directe wijziging: Wanneer je vervolgens een eigenschap van dat object wijzigt via de nieuwe variabele 
             (productGevonden.aantal), bewerk je het daadwerkelijke object in de winkelmand array omdat beide variabelen 
             (het element in de array en productGevonden) naar hetzelfde object in het geheugen verwijzen.
             */
             }else{
                 winkelmand.push({
                     productId: productId,
-                    aantal:1
+                    aantal:aantalGeselecteerd                                         // oefening e.  
                 }); 
             }
 
