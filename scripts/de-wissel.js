@@ -122,7 +122,7 @@ producten.forEach((product)=>{
 
                 <div class="product-afstand-regelen"></div>
 
-                <div class="aan-winkelmand-toegevoegd">
+                <div class="aan-winkelmand-toegevoegd js-aan-winkelmand-toegevoegd-${product.id}">
                     <img src="afbeeldingen/icons/checkmark.png" alt="">
                 </div>
                 <button class="aan-winkelwagen-toevoegen-btn js-aan-winkelwagen-toevoegen-btn"
@@ -178,12 +178,18 @@ document.querySelectorAll('.js-aan-winkelwagen-toevoegen-btn').forEach((knop)=>{
 
             winkelmand.forEach((productGekocht)=>{
                 winkelmandAantal+=productGekocht.aantal;
-            })
+            });
 
             document.querySelector('.js-kar-aantal').innerHTML=winkelmandAantal;
 
-            console.log(winkelmandAantal);
-            console.log(winkelmand);
+            let iconToegevoegd=document.querySelector(`.js-aan-winkelmand-toegevoegd-${productId}`);// oefening h.
+            iconToegevoegd.classList.add('aan-winkelmand-toegevoed-zichtbaar');                     // oefening h.
+
+            setTimeout(()=>{                                                                        // oefening h.
+                iconToegevoegd.classList.remove('aan-winkelmand-toegevoed-zichtbaar')               // oefening h.
+            },2000);                                                                                // oefening h.
+
+            
     });
-});
+})
 

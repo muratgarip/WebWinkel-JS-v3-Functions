@@ -124,7 +124,9 @@ schermgrootte gaan we de aantal kolommen aanpassen.
     */
     opacity: 0;
   }
-
+  .aan-winkelmand-toegevoed-zichtbaar{
+    opacity:1;
+  }
 
   .aan-winkelmand-toegevoegd img {
     height: 20px;
