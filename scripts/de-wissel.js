@@ -1,82 +1,5 @@
-import {winkelmand}  from '../data/winkelmand.js';
+import {winkelmand, inWinkelwagen}  from '../data/winkelmand.js';
 import {producten} from '../data/producten.js';
-// deel 1 Data bewaren, data verhuist naar data/producten.js
-/*
-console.log('hallo vanuit de-wissel pagina');
-let producten= [
-{
-    afbeelding: 'afbeeldingen/producten/basket-153310_1280.png',
-    naam: 'High-performance basketbalschoenen, ontworpen met veerkrachtige zolen en stijlvolle patronen.',
-    rating:{
-        sterren:4.5,
-        aantal:278
-    },
-    prijsCent: 16995,
-},
-{
-    afbeelding: 'afbeeldingen/producten/tennis-7968714_1280.png',
-    naam: 'Biedt optimale ondersteuning, demping en stabiliteit voor intensieve bewegingen op de baan.',
-    rating:{
-        sterren:3.0,
-        aantal:568
-    },
-    prijsCent: 14595,
-},
-{
-    afbeelding: 'afbeeldingen/producten/loop-157716_1280.png',
-    naam: 'Loopschoenen. Hij heeft een lichtgewicht en ademend bovenwerk dat zorgt voor ventilatie en voorkomt oververhitting.',
-    rating:{
-        sterren:4.0,
-        aantal:368
-    },
-    prijsCent: 12595,
-},
-{
-    afbeelding: 'afbeeldingen/producten/vrijetijd-niki-8658546_1280.png',
-    naam: 'Niki, mooie vrijtijds sportieve schoenen',
-    rating:{
-        sterren: 3.5,
-        aantal:56
-    },
-    prijsCent:15395,
-},
-{
-    afbeelding: 'afbeeldingen/producten/basket-153310_1280.png',
-    naam: 'High-performance basketbalschoenen, ontworpen met veerkrachtige zolen en stijlvolle patronen.',
-    rating:{
-        sterren:4.5,
-        aantal:278
-    },
-    prijsCent: 16995,
-},
-{
-    afbeelding: 'afbeeldingen/producten/tennis-7968714_1280.png',
-    naam: 'Biedt optimale ondersteuning, demping en stabiliteit voor intensieve bewegingen op de baan.',
-    rating:{
-        sterren:3.0,
-        aantal:568
-    },
-    prijsCent: 14595,
-},
-{
-    afbeelding: 'afbeeldingen/producten/loop-157716_1280.png',
-    naam: 'Loopschoenen. Hij heeft een lichtgewicht en ademend bovenwerk dat zorgt voor ventilatie en voorkomt oververhitting.',
-    rating:{
-        sterren:4.0,
-        aantal:368
-    },
-    prijsCent: 12595,
-},
-{
-    afbeelding: 'afbeeldingen/producten/vrijetijd-niki-8658546_1280.png',
-    naam: 'Niki, mooie vrijtijds sportieve schoenen',
-    rating:{
-        sterren: 3.5,
-        aantal:56
-    },
-    prijsCent:15395,
-}
-];*/
 
 // deel 2 HTML code genereren
 
@@ -137,60 +60,33 @@ producten.forEach((product)=>{
 document.querySelector('.js-producten-grid').innerHTML+=productenHTML;
 
 /*
-eventlistener toevoegen aan alle "In winkelwagen" knoppen
+Deel3 functions aanmaken
 */
+
+function winkelmandAantalAanpassen(productId){
+    let winkelmandAantal=0;
+
+    winkelmand.forEach((productGekocht)=>{
+        winkelmandAantal+=productGekocht.aantal;
+    });
+
+    document.querySelector('.js-kar-aantal').innerHTML=winkelmandAantal;
+
+    let iconToegevoegd=document.querySelector(`.js-aan-winkelmand-toegevoegd-${productId}`);
+    iconToegevoegd.classList.add('aan-winkelmand-toegevoed-zichtbaar');                     
+
+    setTimeout(()=>{                                                                        
+        iconToegevoegd.classList.remove('aan-winkelmand-toegevoed-zichtbaar')               
+    },2000); 
+}
 
 document.querySelectorAll('.js-aan-winkelwagen-toevoegen-btn').forEach((knop)=>{
     knop.addEventListener('click', ()=>{
             let productId=knop.dataset.productId;
 
-            let productGevonden; // productNaam === productGekocht
+            inWinkelwagen(productId);
 
-            winkelmand.forEach((productGekocht)=>{
-                if (productId === productGekocht.productId){
-                    productGevonden=productGekocht;
-                }
-            });
-            /*Javascript instructie in een regel: 
-            productGevonden = winkelmand.find((productGekocht) => productNaam === productGekocht.productNaam);*/
-
-            let aantalSelector=document.querySelector(`.js-aantal-selector-${productId}`);// oefening c.
-            let aantalGeselecteerd=Number(aantalSelector.value);                    // oefening d. en e.
-
-            if (productGevonden){
-                productGevonden.aantal+=aantalGeselecteerd;                          // oefening e.
-            /*
-            - Objecten en referenties: In JavaScript worden objecten door referentie opgeslagen. 
-            Wanneer je een object zoekt en toewijst aan een variabele (zoals productGevonden), 
-            wijst die variabele naar dezelfde plek in het geheugen waar het object is opgeslagen.
-
-            - Directe wijziging: Wanneer je vervolgens een eigenschap van dat object wijzigt via de nieuwe variabele 
-            (productGevonden.aantal), bewerk je het daadwerkelijke object in de winkelmand array omdat beide variabelen 
-            (het element in de array en productGevonden) naar hetzelfde object in het geheugen verwijzen.
-            */
-            }else{
-                winkelmand.push({
-                    productId: productId,
-                    aantal:aantalGeselecteerd                                         // oefening e.  
-                }); 
-            }
-
-            let winkelmandAantal=0;
-
-            winkelmand.forEach((productGekocht)=>{
-                winkelmandAantal+=productGekocht.aantal;
-            });
-
-            document.querySelector('.js-kar-aantal').innerHTML=winkelmandAantal;
-
-            let iconToegevoegd=document.querySelector(`.js-aan-winkelmand-toegevoegd-${productId}`);// oefening h.
-            iconToegevoegd.classList.add('aan-winkelmand-toegevoed-zichtbaar');                     // oefening h.
-
-            setTimeout(()=>{                                                                        // oefening h.
-                iconToegevoegd.classList.remove('aan-winkelmand-toegevoed-zichtbaar')               // oefening h.
-            },2000);                                                                                // oefening h.
-
-            
+            winkelmandAantalAanpassen(productId);                                                                                        
     });
-})
+});
 
