@@ -1,5 +1,5 @@
 import {winkelmand}  from '../data/winkelmand.js';
-
+import {producten} from '../data/producten.js';
 // deel 1 Data bewaren, data verhuist naar data/producten.js
 /*
 console.log('hallo vanuit de-wissel pagina');

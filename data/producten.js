@@ -1,4 +1,4 @@
-let producten= [
+export let producten= [
     {
         id:1,
         afbeelding: 'afbeeldingen/producten/basket-153310_1280.png',
