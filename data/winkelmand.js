@@ -1,1 +1,1 @@
-let winkelmand = [];
+export let winkelmand = [];

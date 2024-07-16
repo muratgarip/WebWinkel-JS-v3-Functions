@@ -1,3 +1,4 @@
+import {winkelmand}  from '../data/winkelmand.js';
 
 // deel 1 Data bewaren, data verhuist naar data/producten.js
 /*
