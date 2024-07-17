@@ -1,4 +1,13 @@
-export let winkelmand = [];
+export let winkelmand = [
+    {
+        productId: 3,
+        aantal: 3
+    },
+    {
+        productId: 1,
+        aantal: 3
+    }
+];
 
 export function inWinkelwagen(productId){
     let productGevonden; // productNaam === productGekocht
