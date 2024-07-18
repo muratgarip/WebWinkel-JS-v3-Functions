@@ -1,7 +1,9 @@
 import {winkelmand}  from '../data/winkelmand.js';
 import {producten} from '../data/producten.js';
+import {formateerMunt} from './nuttige-functies/geld.js';
 
 let winkelmandHTML= '';
+
 
 winkelmand.forEach((product)=>{
     let productId=product.productId;
@@ -9,10 +11,17 @@ winkelmand.forEach((product)=>{
     producten.forEach((product)=>{
         if (product.id===productId){      
             productGevonden=product;    //product gevonden
+        
+            
         } 
     });
 
-winkelmandHTML+=`   
+   //in productGevonden is de id product.id
+   console.log(productGevonden.id);
+   //in winkelmand is de aantal product.aantal
+   console.log(product.aantal);
+
+    winkelmandHTML+=`   
     <div class="winkelwagen-product-container">
         <div class="lever-datum">
             Levering datum: Maandag 22 julie
@@ -24,11 +33,11 @@ winkelmandHTML+=`
                     ${productGevonden.naam}
                 </div>
                 <div class="product-prijs">
-                    ${productGevonden.prijsCent/100} €
+                    ${formateerMunt(productGevonden.prijsCent)} €
                 </div>
                 <div class="product-aantal">
                     <span>
-                        Aantal: <span class="aantal-label">${winkelmand.aantal}</span>
+                        Aantal: <span class="aantal-label">${product.aantal}</span>
                     </span>
                     <span class="wijzig-aantal-link link-primary">
                         Wijzigen
@@ -43,7 +52,7 @@ winkelmandHTML+=`
                     Kies een bezorgoptie:
                 </div>
                 <div class="bezorg-optie">
-                    <input type="radio" checked class="bezorg-optie-input" name="bezorg-optie-1">
+                    <input type="radio" checked class="bezorg-optie-input" name="bezorg-optie-${productGevonden.id}">
                     <div>
                         <div class="bezorg-optie-datum">
                             Maandag 22 julie
@@ -54,7 +63,7 @@ winkelmandHTML+=`
                     </div>
                 </div>
                 <div class="bezorg-optie">
-                    <input type="radio" class="bezorg-optie-input" name="bezorg-optie-1">
+                    <input type="radio" class="bezorg-optie-input" name="bezorg-optie-${productGevonden.id}">
                     <div>
                         <div class="bezorg-optie-datum">
                             Woensdag 17 julie
@@ -65,7 +74,7 @@ winkelmandHTML+=`
                     </div>
                 </div>
                 <div class="bezorg-optie">
-                    <input type="radio" class="bezorg-optie-input" name="bezorg-optie-1">
+                    <input type="radio" class="bezorg-optie-input" name="bezorg-optie-${productGevonden.id}">
                     <div>
                         <div class="bezorg-optie-datum">
                             Donderdag 11 julie

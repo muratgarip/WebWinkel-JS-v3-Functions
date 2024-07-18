@@ -1,5 +1,6 @@
 import {winkelmand, inWinkelwagen}  from '../data/winkelmand.js';
 import {producten} from '../data/producten.js';
+import {formateerMunt} from './nuttige-functies/geld.js';
 
 // deel 2 HTML code genereren
 
@@ -26,7 +27,7 @@ producten.forEach((product)=>{
                 </div>
 
                 <div class="product-prijs">
-                    ${(product.prijsCent / 100).toFixed(2)} €
+                    ${formateerMunt(product.prijsCent)} €
                 </div>
 
                 <div class="product-aantal-container">
