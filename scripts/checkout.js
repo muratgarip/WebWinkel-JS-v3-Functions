@@ -20,7 +20,7 @@ winkelmand.forEach((product)=>{
    //console.log(product.aantal);
 
     winkelmandHTML+=`   
-    <div class="winkelwagen-product-container">
+    <div class="winkelwagen-product-container js-winkelwagen-product-container-${productGevonden.id}">
         <div class="lever-datum">
             Levering datum: Maandag 22 julie
         </div>
@@ -93,7 +93,9 @@ document.querySelector('.js-bestelling-samenvatting').innerHTML = winkelmandHTML
 document.querySelectorAll('.js-verwijder-aantal-link').forEach((link)=>{
     link.addEventListener('click',()=>{
         let productId = link.dataset.productId;
-        verwijderVanWinkelmand(productId)
-        console.log(winkelmand);
+        verwijderVanWinkelmand(productId);
+      
+        let container = document.querySelector(`.js-winkelwagen-product-container-${productId}`);
+        container.remove();
     })
 });
