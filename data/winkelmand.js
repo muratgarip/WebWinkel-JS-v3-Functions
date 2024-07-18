@@ -29,3 +29,19 @@ export function inWinkelwagen(productId){
         }); 
     }
 }
+
+export function verwijderVanWinkelmand(productId){
+//stap 1. Maak een nieuwe array aan.
+  let nieuwWinkelmand=[];   
+//stap 2. Loop deer de winkelmand producten.                    
+  winkelmand.forEach((product)=>{ 
+//stap 3. Kopieer alle producten van winkelmand naar het nieuwe array, behalve de productId die we willen verwijderen. 
+// productId komt als een string, omdat deze van een dataset gehaald is. Ofwel gebruiken we != ofwel Number()                 
+    if (product.productId !== Number(productId)){                                               
+        nieuwWinkelmand.push(product); 
+        console.log(productId, product.productId)         
+    }
+  });
+//stap 4. Kopieer de nieuwe array naar de bestaande winkelmand. 
+  winkelmand = nieuwWinkelmand;                   
+}

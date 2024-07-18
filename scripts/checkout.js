@@ -1,4 +1,4 @@
-import {winkelmand}  from '../data/winkelmand.js';
+import {winkelmand, verwijderVanWinkelmand}  from '../data/winkelmand.js';
 import {producten} from '../data/producten.js';
 import {formateerMunt} from './nuttige-functies/geld.js';
 
@@ -10,16 +10,14 @@ winkelmand.forEach((product)=>{
     let productGevonden;
     producten.forEach((product)=>{
         if (product.id===productId){      
-            productGevonden=product;    //product gevonden
-        
-            
+            productGevonden=product;    //product gevonden           
         } 
     });
 
    //in productGevonden is de id product.id
-   console.log(productGevonden.id);
+   //console.log(productGevonden.id);
    //in winkelmand is de aantal product.aantal
-   console.log(product.aantal);
+   //console.log(product.aantal);
 
     winkelmandHTML+=`   
     <div class="winkelwagen-product-container">
@@ -42,7 +40,7 @@ winkelmand.forEach((product)=>{
                     <span class="wijzig-aantal-link link-primary">
                         Wijzigen
                     </span>
-                    <span class="verwijder-aantal-link link-primary">
+                    <span class="verwijder-aantal-link link-primary js-verwijder-aantal-link" data-product-id="${productGevonden.id}">
                         Verwijderen
                     </span>
                 </div>
@@ -92,3 +90,10 @@ winkelmand.forEach((product)=>{
 
 document.querySelector('.js-bestelling-samenvatting').innerHTML = winkelmandHTML;
 
+document.querySelectorAll('.js-verwijder-aantal-link').forEach((link)=>{
+    link.addEventListener('click',()=>{
+        let productId = link.dataset.productId;
+        verwijderVanWinkelmand(productId)
+        console.log(winkelmand);
+    })
+});
