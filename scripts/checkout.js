@@ -92,7 +92,7 @@ document.querySelector('.js-bestelling-samenvatting').innerHTML = winkelmandHTML
 
 document.querySelectorAll('.js-verwijder-aantal-link').forEach((link)=>{
     link.addEventListener('click',()=>{
-        let productId = link.dataset.productId;
+        let productId = Number(link.dataset.productId);
         verwijderVanWinkelmand(productId);
       
         let container = document.querySelector(`.js-winkelwagen-product-container-${productId}`);

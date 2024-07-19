@@ -1,4 +1,8 @@
-export let winkelmand = [
+export let winkelmand = JSON.parse(localStorage.getItem('winkelmand'));
+ 
+//if (winkelmand.length===0) {
+if (!winkelmand) {
+  winkelmand= [
     {
         productId: 3,
         aantal: 3
@@ -8,6 +12,13 @@ export let winkelmand = [
         aantal: 3
     }
 ];
+}
+
+console.log(winkelmand);
+
+function bewaarInStorage(){
+  localStorage.setItem('winkelmand',JSON.stringify(winkelmand));
+}
 
 export function inWinkelwagen(productId){
     let productGevonden; // productNaam === productGekocht
@@ -28,6 +39,8 @@ export function inWinkelwagen(productId){
             aantal:aantalGeselecteerd                                          
         }); 
     }
+    bewaarInStorage();
+    console.log(winkelmand);
 }
 
 export function verwijderVanWinkelmand(productId){
@@ -37,11 +50,13 @@ export function verwijderVanWinkelmand(productId){
   winkelmand.forEach((product)=>{ 
 //stap 3. Kopieer alle producten van winkelmand naar het nieuwe array, behalve de productId die we willen verwijderen. 
 // productId komt als een string, omdat deze van een dataset gehaald is. Ofwel gebruiken we != ofwel Number()                 
-    if (product.productId !== Number(productId)){                                               
+    if (product.productId !== productId){                                               
         nieuwWinkelmand.push(product); 
         console.log(productId, product.productId)         
     }
   });
 //stap 4. Kopieer de nieuwe array naar de bestaande winkelmand. 
-  winkelmand = nieuwWinkelmand;                   
+  winkelmand = nieuwWinkelmand; 
+  bewaarInStorage(); 
+  console.log(winkelmand);               
 }

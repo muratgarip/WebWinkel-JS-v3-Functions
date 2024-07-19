@@ -68,7 +68,7 @@ function winkelmandAantalAanpassen(productId){
     let winkelmandAantal=0;
 
     winkelmand.forEach((productGekocht)=>{
-        winkelmandAantal+=productGekocht.aantal;
+        winkelmandAantal+=productGekocht.aantal;    
     });
 
     document.querySelector('.js-kar-aantal').innerHTML=winkelmandAantal;
@@ -83,8 +83,8 @@ function winkelmandAantalAanpassen(productId){
 
 document.querySelectorAll('.js-aan-winkelwagen-toevoegen-btn').forEach((knop)=>{
     knop.addEventListener('click', ()=>{
-            let productId=knop.dataset.productId;
-
+            let productId=Number(knop.dataset.productId);
+       
             inWinkelwagen(productId);
 
             winkelmandAantalAanpassen(productId);                                                                                        
